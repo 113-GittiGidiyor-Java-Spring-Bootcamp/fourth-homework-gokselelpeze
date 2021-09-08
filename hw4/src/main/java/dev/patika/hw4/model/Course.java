@@ -11,6 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Builder
-public class Course {
+public class Course extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -34,7 +35,6 @@ public class Course {
     @Max(value = 4, message = "The credit score cannot be greater than 4")
     @NumberFormat(style = NumberFormat.Style.NUMBER)
     private int creditScore;
-
 
     @ManyToMany
     private List<Student> students = new ArrayList<>();

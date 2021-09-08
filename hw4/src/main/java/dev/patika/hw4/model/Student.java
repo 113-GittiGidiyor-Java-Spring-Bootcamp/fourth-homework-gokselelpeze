@@ -16,7 +16,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @Builder
-public class Student {
+public class Student extends BaseEntity{
 
     @ManyToMany(mappedBy = "students")
     List<Course> courseList = new ArrayList<>();
