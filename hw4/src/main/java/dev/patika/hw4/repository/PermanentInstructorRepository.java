@@ -1,6 +1,7 @@
 package dev.patika.hw4.repository;
 
 import dev.patika.hw4.model.Instructor;
+import dev.patika.hw4.model.PermanentInstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,9 +10,9 @@ import java.util.List;
 public interface PermanentInstructorRepository extends InstructorRepository {
 
     // get 3 instructors with the greatest salary
-    List<Instructor> findFirst3PermanentInstructorsByOrderByFixedSalaryDesc();
+    List<PermanentInstructor> findFirst3PermanentInstructorsByOrderByFixedSalaryDesc();
 
     //get 3 instructors with the lowest salary
-    List<Instructor> findFirst3PermanentInstructorsByOrderByFixedSalaryAsc();
+    List<PermanentInstructor> findFirst3PermanentInstructorsByOrderByFixedSalaryAsc();
 
 }

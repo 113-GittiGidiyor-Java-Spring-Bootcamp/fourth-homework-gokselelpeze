@@ -17,7 +17,7 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
 
     List<Course> findCoursesByCourseName(String courseName);
 
-    @Query("select * from Course c WHERE  c.courseCode= ?1")
+    @Query("select c from Course c WHERE  c.courseCode= ?1")
     Course findCourseByCourseCode(String courseCode);
 
     void deleteCoursesByCourseName(String courseName);

@@ -10,12 +10,12 @@ import java.util.List;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer> {
 
-    List<Student> findStudentsByFirstNameAndLastName(String firstName, String lastName);
+    List<Student> findStudentsByName(String name);
 
     @Query("select s.gender, count(s.gender) from Student s GROUP BY s.gender")
     List<?> getStudentsGendersWithGrouping();
 
-    void deleteStudentsByFirstNameAndLastName(String firstName, String lastName);
+    void deleteStudentsByName(String name);
 
 
 }

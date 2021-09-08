@@ -4,11 +4,11 @@ import dev.patika.hw4.dto.StudentDTO;
 import dev.patika.hw4.model.Student;
 import org.mapstruct.Mapper;
 
-@Mapper
-public interface StudentMapper {
+@Mapper(componentModel = "spring")
+public abstract class StudentMapper {
 
-    Student mapFromStudentDTOtoStudent(StudentDTO studentDTO);
+    public abstract Student mapFromStudentDTOtoStudent(StudentDTO studentDTO);
 
-    StudentDTO mapFromStudenttoStudentDTO(Student student);
+    public abstract StudentDTO mapFromStudenttoStudentDTO(Student student);
 
 }

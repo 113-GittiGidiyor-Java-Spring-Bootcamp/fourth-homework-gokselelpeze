@@ -90,28 +90,28 @@ public class InstructorService {
     }
 
     @Transactional
-    public List<Instructor> findInstructorsByFirstNameAndLastName(String firstName, String lastName) {
-        return instructorRepository.findInstructorsByFirstNameAndLastName(firstName, lastName);
+    public List<Instructor> findInstructorsByName(String name) {
+        return instructorRepository.findInstructorsByName(name);
     }
 
     @Transactional
-    public void deleteInstructorByFirstNameAndLastName(String firstName, String lastName) {
-        instructorRepository.deleteInstructorByFirstNameAndLastName(firstName, lastName);
+    public void deleteInstructorByName(String name) {
+        instructorRepository.deleteInstructorByName(name);
     }
 
-    public List<Instructor> findFirst3PermanentInstructorsByOrderByFixedSalaryDesc() {
+    public List<PermanentInstructor> findFirst3PermanentInstructorsByOrderByFixedSalaryDesc() {
         return permanentInstructorRepository.findFirst3PermanentInstructorsByOrderByFixedSalaryDesc();
     }
 
-    public List<Instructor> findFirst3PermanentInstructorsByOrderByFixedSalaryAsc() {
+    public List<PermanentInstructor> findFirst3PermanentInstructorsByOrderByFixedSalaryAsc() {
         return permanentInstructorRepository.findFirst3PermanentInstructorsByOrderByFixedSalaryAsc();
     }
 
-    public List<Instructor> findFirst3VisitingResearchersByOrderByHourlySalaryDesc() {
+    public List<VisitingResearcher> findFirst3VisitingResearchersByOrderByHourlySalaryDesc() {
         return visitingResearcherRepository.findFirst3VisitingResearchersByOrderByHourlySalaryDesc();
     }
 
-    public List<Instructor> findFirst3VisitingResearchersByOrderByHourlySalaryAsc() {
+    public List<VisitingResearcher> findFirst3VisitingResearchersByOrderByHourlySalaryAsc() {
         return visitingResearcherRepository.findFirst3VisitingResearchersByOrderByHourlySalaryAsc();
     }
 

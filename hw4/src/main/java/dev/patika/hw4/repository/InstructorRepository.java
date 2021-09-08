@@ -9,9 +9,9 @@ import java.util.List;
 @Repository
 public interface InstructorRepository extends JpaRepository<Instructor, Integer> {
 
-    List<Instructor> findInstructorsByFirstNameAndLastName(String firstName, String lastName);
+    List<Instructor> findInstructorsByName(String name);
 
-    void deleteInstructorByFirstNameAndLastName(String firstName, String lastName);
+    void deleteInstructorByName(String firstName);
 
     Instructor findInstructorByPhoneNumber(String phoneNumber);
 

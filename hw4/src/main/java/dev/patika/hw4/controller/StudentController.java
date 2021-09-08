@@ -78,8 +78,8 @@ public class StudentController {
     }
 
     @GetMapping("/students/byName")
-    public ResponseEntity<?> findStudentsByFirstNameAndLastName(@RequestParam String firstName, @RequestParam String lastName) {
-        return new ResponseEntity<>(studentService.findStudentsByFirstNameAndLastName(firstName, lastName), HttpStatus.OK);
+    public ResponseEntity<?> findStudentsByName(@RequestParam String name) {
+        return new ResponseEntity<>(studentService.findStudentsByName(name), HttpStatus.OK);
     }
 
     @GetMapping("/students/groupByGender")
@@ -88,12 +88,12 @@ public class StudentController {
     }
 
     @DeleteMapping("/students/byName")
-    public ResponseEntity<String> deleteStudentsByFirstNameAndLastName(@RequestParam String firstName, @RequestParam String lastName) {
-        if (studentService.findStudentsByFirstNameAndLastName(firstName, lastName).isEmpty()) {
-            return new ResponseEntity<>("Student with name: " + firstName + " " + lastName + " not found.", HttpStatus.BAD_REQUEST);
+    public ResponseEntity<String> deleteStudentsByName(@RequestParam String name) {
+        if (studentService.findStudentsByName(name).isEmpty()) {
+            return new ResponseEntity<>("Student with name: " + name + " not found.", HttpStatus.BAD_REQUEST);
         } else {
-            studentService.deleteStudentsByFirstNameAndLastName(firstName, lastName);
-            return new ResponseEntity<>("Student(s) with name: " + firstName + " " + lastName + " deleted.", HttpStatus.OK);
+            studentService.deleteStudentsByName(name);
+            return new ResponseEntity<>("Students with name: " + name + " deleted.", HttpStatus.OK);
         }
     }
 }

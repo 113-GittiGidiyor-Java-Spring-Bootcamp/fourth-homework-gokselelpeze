@@ -114,18 +114,18 @@ public class InstructorController {
 
     // mapping for GET instructor(s) by their name
     @GetMapping("/instructors/byName")
-    public ResponseEntity<?> findInstructorsByFirstNameAndLastName(@RequestParam String firstName, @RequestParam String lastName) {
-        return new ResponseEntity<>(instructorService.findInstructorsByFirstNameAndLastName(firstName, lastName), HttpStatus.OK);
+    public ResponseEntity<?> findInstructorsByFirstNameAndLastName(@RequestParam String name) {
+        return new ResponseEntity<>(instructorService.findInstructorsByName(name), HttpStatus.OK);
     }
 
     // mapping for DELETE instructor by name
     @DeleteMapping("/instructors/byName")
-    public ResponseEntity<String> deleteInstructorByFirstNameAndLastName(@RequestParam String firstName, @RequestParam String lastName) {
-        if (instructorService.findInstructorsByFirstNameAndLastName(firstName, lastName).isEmpty()) {
-            return new ResponseEntity<>("Instructor with name: " + firstName + " " + lastName + " not found.", HttpStatus.BAD_REQUEST);
+    public ResponseEntity<String> deleteInstructorByFirstNameAndLastName(@RequestParam String name) {
+        if (instructorService.findInstructorsByName(name).isEmpty()) {
+            return new ResponseEntity<>("Instructor with name: " + name + " not found.", HttpStatus.BAD_REQUEST);
         } else {
-            instructorService.deleteInstructorByFirstNameAndLastName(firstName, lastName);
-            return new ResponseEntity<>("Instructor with name: " + firstName + " " + lastName + " deleted.", HttpStatus.OK);
+            instructorService.deleteInstructorByName(name);
+            return new ResponseEntity<>("Instructor with name: " + name + " deleted.", HttpStatus.OK);
         }
     }
 

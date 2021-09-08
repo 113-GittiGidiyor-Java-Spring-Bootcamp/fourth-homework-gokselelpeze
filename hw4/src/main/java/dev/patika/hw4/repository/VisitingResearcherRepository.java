@@ -1,6 +1,7 @@
 package dev.patika.hw4.repository;
 
 import dev.patika.hw4.model.Instructor;
+import dev.patika.hw4.model.VisitingResearcher;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,9 +10,9 @@ import java.util.List;
 public interface VisitingResearcherRepository extends InstructorRepository {
 
     // get 3 instructors with the greatest salary
-    List<Instructor> findFirst3VisitingResearchersByOrderByHourlySalaryDesc();
+    List<VisitingResearcher> findFirst3VisitingResearchersByOrderByHourlySalaryDesc();
 
     //get 3 instructors with the lowest salary
-    List<Instructor> findFirst3VisitingResearchersByOrderByHourlySalaryAsc();
+    List<VisitingResearcher> findFirst3VisitingResearchersByOrderByHourlySalaryAsc();
 
 }

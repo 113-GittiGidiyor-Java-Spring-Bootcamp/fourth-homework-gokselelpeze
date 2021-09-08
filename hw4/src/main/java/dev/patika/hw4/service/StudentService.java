@@ -63,8 +63,8 @@ public class StudentService {
         studentRepository.deleteById(studentId);
     }
 
-    public List<Student> findStudentsByFirstNameAndLastName(String firstName, String lastName) {
-        return studentRepository.findStudentsByFirstNameAndLastName(firstName, lastName);
+    public List<Student> findStudentsByName(String name) {
+        return studentRepository.findStudentsByName(name);
     }
 
     public List<?> getStudentsGendersWithGrouping() {
@@ -72,8 +72,8 @@ public class StudentService {
     }
 
     @Transactional
-    public void deleteStudentsByFirstNameAndLastName(String firstName, String lastName) {
-        studentRepository.deleteStudentsByFirstNameAndLastName(firstName, lastName);
+    public void deleteStudentsByName(String name) {
+        studentRepository.deleteStudentsByName(name);
     }
 
 }

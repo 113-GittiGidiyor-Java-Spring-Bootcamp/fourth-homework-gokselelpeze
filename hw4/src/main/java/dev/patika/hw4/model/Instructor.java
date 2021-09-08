@@ -2,8 +2,7 @@ package dev.patika.hw4.model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
@@ -15,9 +14,10 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-@SuperBuilder
 public class Instructor extends BaseEntity{
+//public class Instructor{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
