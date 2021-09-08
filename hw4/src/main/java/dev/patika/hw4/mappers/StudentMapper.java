@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface StudentMapper {
 
-    Student mapFromStudentDTOtoStudent(StudentDTO dto);
+    Student mapFromStudentDTOtoStudent(StudentDTO studentDTO);
 
-    StudentDTO mapFromStudenttoStudentDTO(Student customer);
+    StudentDTO mapFromStudenttoStudentDTO(Student student);
 
 }
