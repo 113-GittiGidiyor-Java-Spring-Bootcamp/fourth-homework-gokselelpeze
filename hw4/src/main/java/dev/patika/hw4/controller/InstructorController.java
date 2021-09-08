@@ -89,7 +89,6 @@ public class InstructorController {
         }
     }
 
-    // mapping for DELETE /instructors - delete instructor
     @DeleteMapping("/instructors/visitingResearcher")
     public ResponseEntity<String> deleteVisitingResearcher(@RequestBody @Valid VisitingResearcher instructor) {
         int instructorId = instructor.getId();
@@ -101,7 +100,6 @@ public class InstructorController {
         }
     }
 
-    // mapping for DELETE /instructors/{instructorId} - delete instructor by id
     @DeleteMapping("/instructors/{instructorId}")
     public ResponseEntity<String> deleteInstructorById(@PathVariable int instructorId) {
         if (instructorService.existsById(instructorId)) {
@@ -112,13 +110,11 @@ public class InstructorController {
         }
     }
 
-    // mapping for GET instructor(s) by their name
     @GetMapping("/instructors/byName")
     public ResponseEntity<?> findInstructorsByFirstNameAndLastName(@RequestParam String name) {
         return new ResponseEntity<>(instructorService.findInstructorsByName(name), HttpStatus.OK);
     }
 
-    // mapping for DELETE instructor by name
     @DeleteMapping("/instructors/byName")
     public ResponseEntity<String> deleteInstructorByFirstNameAndLastName(@RequestParam String name) {
         if (instructorService.findInstructorsByName(name).isEmpty()) {
@@ -129,25 +125,21 @@ public class InstructorController {
         }
     }
 
-    // mapping for GET top 3 permanent instructors with the highest salary.
     @GetMapping("/instructors/permanentInstructor/top3")
     public ResponseEntity<?> findFirst3PermanentInstructorsByOrderByFixedSalaryDesc() {
         return new ResponseEntity<>(instructorService.findFirst3PermanentInstructorsByOrderByFixedSalaryDesc(), HttpStatus.OK);
     }
 
-    // mapping for GET top 3 permanent instructors with the lowest salary.
     @GetMapping("/instructors/permanentInstructor/last3")
     public ResponseEntity<?> findFirst3PermanentInstructorsByOrderByFixedSalaryAsc() {
         return new ResponseEntity<>(instructorService.findFirst3PermanentInstructorsByOrderByFixedSalaryAsc(), HttpStatus.OK);
     }
 
-    // mapping for GET top 3 visiting researchers with the highest salary.
     @GetMapping("/instructors/visitingResearcher/top3")
     public ResponseEntity<?> findFirst3VisitingResearchersByOrderByHourlySalaryDesc() {
         return new ResponseEntity<>(instructorService.findFirst3VisitingResearchersByOrderByHourlySalaryDesc(), HttpStatus.OK);
     }
 
-    // mapping for GET top 3 visiting researchers with the lowest salary.
     @GetMapping("/instructors/visitingResearcher/last3")
     public ResponseEntity<?> findFirst3VisitingResearchersByOrderByHourlySalaryAsc() {
         return new ResponseEntity<>(instructorService.findFirst3VisitingResearchersByOrderByHourlySalaryAsc(), HttpStatus.OK);
